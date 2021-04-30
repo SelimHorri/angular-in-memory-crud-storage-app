@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Department } from '../model/dto/department';
 import { Employee } from '../model/dto/employee';
 
@@ -8,24 +8,17 @@ import { Employee } from '../model/dto/employee';
 })
 export class EmployeeService {
   
-  private departments!: Department[];
+  private departments: Department[] = environment.departments;
+  
   private employees!: Employee[];
   private employee!: Employee;
   
   constructor() {
-    
-    this.departments = [
-      new Department(1, "Data Science"),
-      new Department(2, "Software Engineer"),
-      new Department(3, "Marketing")
-    ];
-    
     this.employees = [
       new Employee(1, "selim", "horri", "selimhorri@gmail.com", "https://bootdey.com/img/Content/avatar/avatar7.png", new Date("2019-04-15"), "22125144", this.departments[2]),
       new Employee(2, "amine", "ladjimi", "amineladjimi@yahoo.fr", "https://bootdey.com/img/Content/avatar/avatar5.png", new Date("2021-04-01"), "22125144", this.departments[1]),
       new Employee(3, "omar", "derouiche", "omarderouiche@gmail.com", "https://bootdey.com/img/Content/avatar/avatar6.png", new Date("2020-04-01"), "22125144", this.departments[3])
     ];
-    
   }
   
   public findAll(): Employee[] {

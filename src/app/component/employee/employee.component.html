@@ -1,1 +1,24 @@
 <p>employee works!</p>
+
+
+<div *ngFor="let e of employees" >
+  <h5>{{ e?.fname }} {{ e?.lname }}</h5>
+  <h5>{{ e?.email }}</h5>
+  <h5>{{ e?.hiredate | date }}</h5>
+  <img src="{{ e?.imageUrl }}">
+  <h5>{{ e?.phone }}</h5>
+  <h5>{{ e.department.departmentName }}</h5>
+</div>
+
+
+<!--
+<div>
+  <h5>{{ employee?.fname }} {{ employee?.lname }}</h5>
+  <h5>{{ employee?.email }}</h5>
+  <h5>{{ employee?.hiredate | date }}</h5>
+  <img src="{{ employee?.imageUrl }}">
+  <h5>{{ employee?.phone }}</h5>
+  <h5>{{ employee.department.departmentName }}</h5>
+</div>
+-->
+
